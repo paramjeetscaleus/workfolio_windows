@@ -1,0 +1,88 @@
+<%= render partial: 'partials/header' %>
+<!DOCTYPE html>
+<html>
+
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: center;
+  }
+
+  h2, h3, h4 {
+    margin-top: 20px;
+  }
+
+  .back-button {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #a7b1bc;
+    color: #504040;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .back-button:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<body>
+    <a href="<%= work_session_index_path %>" class="back-button">Back</a>
+    <h2>Report of <%= @user.username.capitalize %></h2>
+    <p>Email: <%= @user.email %></p>
+
+    <h3>Work Sessions (Daily Records)</h3>
+    <% @work_sessions.each do |date, sessions| %>
+      <h4><%= date.strftime("%d %B %Y") %></h4>
+      
+      <table>
+        <tr>
+          <th>Clock In</th>
+          <th>Clock Out</th>
+          <th>Total Working Hours</th>
+        </tr>
+        
+        <% sessions.each do |session| %>
+          <tr>
+            <td><%= session.clock_in.strftime("%I:%M:%S %p") %></td>
+            <td>
+              <% if session.clock_out.present? %>
+                <%= session.clock_out.strftime("%I:%M:%S %p") %>
+              <% else %>
+                <%= @user.username.capitalize %> Currently working
+              <% end %>
+            </td>
+            <td>
+              <% if session.clock_out.present? %>
+                <% 
+                  total_seconds = (session.clock_out - session.clock_in).to_i
+                  hours = total_seconds / 3600
+                  minutes = (total_seconds % 3600) / 60
+                  seconds = total_seconds % 60
+                %>
+                <%= "#{hours}h #{minutes}m #{seconds}s" %>
+              <% else %>
+                -
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+
+</body>
+
+</html>

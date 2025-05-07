@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  clock_in: 2025-03-24 13:04:44
+  break_start: 2025-03-24 13:04:44
+  break_end: 2025-03-24 13:04:44
+  clock_out: 2025-03-24 13:04:44
+  total_hours: 1.5
+
+two:
+  user: two
+  clock_in: 2025-03-24 13:04:44
+  break_start: 2025-03-24 13:04:44
+  break_end: 2025-03-24 13:04:44
+  clock_out: 2025-03-24 13:04:44
+  total_hours: 1.5

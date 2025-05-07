@@ -1,0 +1,44 @@
+<div>
+    <h1 id="timer">00:00:00</h1>
+    <button id="start-btn">Start</button>
+    <button id="pause-btn">Pause</button>
+</div>
+<script>
+let timerInterval;
+let elapsedTime = 0;
+let isRunning = false;
+
+function startTimer() {
+    if (!isRunning) {
+        isRunning = true;
+        let startTime = Date.now() - elapsedTime;
+
+        timerInterval = setInterval(function () {
+            elapsedTime = Date.now() - startTime;
+            displayTime(elapsedTime);
+        }, 1000);
+    }
+}
+
+function pauseTimer() {
+    isRunning = false;
+    clearInterval(timerInterval);
+}
+
+function displayTime(milliseconds) {
+    let totalSeconds = Math.floor(milliseconds / 1000);
+    let hours = Math.floor(totalSeconds / 3600);
+    let minutes = Math.floor((totalSeconds % 3600) / 60);
+    let seconds = totalSeconds % 60;
+
+    document.getElementById("timer").textContent = 
+        (hours < 10 ? "0" : "") + hours + ":" + 
+        (minutes < 10 ? "0" : "") + minutes + ":" + 
+        (seconds < 10 ? "0" : "") + seconds;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("start-btn").addEventListener("click", startTimer);
+    document.getElementById("pause-btn").addEventListener("click", pauseTimer);
+});
+</script>

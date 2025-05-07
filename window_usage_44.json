@@ -1,0 +1,32 @@
+[
+  {
+    "window_title": "localhost - Google Chrome",
+    "duration": 10,
+    "percentage": 16.67
+  },
+  {
+    "window_title": "Administrator: Windows PowerShell",
+    "duration": 44,
+    "percentage": 73.33
+  },
+  {
+    "window_title": "Task Switching",
+    "duration": 2,
+    "percentage": 3.33
+  },
+  {
+    "window_title": "work_sessions_controller.rb - workfolio_copy - Visual Studio Code [Administrator]",
+    "duration": 2,
+    "percentage": 3.33
+  },
+  {
+    "window_title": "? work_sessions_controller.rb - workfolio_copy - Visual Studio Code [Administrator]",
+    "duration": 1,
+    "percentage": 1.67
+  },
+  {
+    "window_title": "",
+    "duration": 1,
+    "percentage": 1.67
+  }
+]

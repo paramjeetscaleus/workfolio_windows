@@ -1,0 +1,510 @@
+<%= render partial: 'partials/header' %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap Button Alignment</title>
+    <meta charset="utf-8">
+    <meta name="viewport"  content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src= "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <style>
+      .help-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+      .help-button button {
+        width: 65px;
+        height: 65px;
+        border: none;
+        background: url('https://tawk.link/thumb/6023ec849c4f165d47c1ec80/var/page-images/4u1dTHxZn8.png?width=95&height=95') no-repeat center center;
+        background-size: cover;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+
+      .help-text {
+        font-size: 14px;
+        font-weight: bold;
+        color: grey;
+        margin-bottom: 5px;
+      }
+
+      .help-button button:hover {
+        opacity: 0.8;
+      }
+      h3 {text-align: center;}
+
+      Container
+      .dashboard-container {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      User Profile
+      .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+
+      .profile-img {
+        margin-left: 10px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+      }
+
+      .user-info {
+        display: flex;
+        margin-left: 13px;
+        flex-direction: column;
+      }
+
+      .status-time {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .status-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .status-dot.active {
+        background-color: green;
+      }
+
+      Buttons
+        .action-buttons {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      .btn {
+        padding: 10px 15px;
+        margin: 5px;
+        border-radius: 5px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .btn-success {
+        background-color: green;
+      }
+
+      .btn-warning {
+        background-color: orange;
+      }
+
+      .btn-primary {
+        background-color: blue;
+      }
+
+      .btn-danger {
+        background-color: red;
+      }
+
+      Welcome Message
+        .welcome-message {
+        margin-top: 80px;
+      }
+
+      .status-text {
+        font-weight: bold;
+      }
+
+      .status-text.working {
+        color: green;
+      }
+
+      /* Work Actions
+      .work-actions {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .btn-outline {
+        background-color: white;
+        color: #333;
+        border: 2px solid #ccc;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* Floating Help Button
+      .help-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .help-button button {
+        background-color: blue;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .action-buttons {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+      }
+      
+
+      .btn {
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      
+      .btn-success {
+        background-color: green;
+      }
+      
+      .btn-danger {
+        background-color: red;
+      }
+
+      .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+
+      .status-text.working {
+        font-weight: bold;
+        color: green;
+      }
+
+      .status-text.break {
+        color: blue;
+        font-weight: bold;
+      }
+    
+      .user-profile {
+        display: flex;
+        align-items: center;
+      }
+      
+      .profile-container {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .profile-img {
+        width: 80px;  
+        height: 80px;
+        border-radius: 50%;
+      }
+      
+      .status-dot {
+        position: absolute;
+        bottom: 5px;  
+        right: 5px;  
+        width: 15px;
+        height: 15px;
+        background-color: green;
+        border-radius: 50%;
+        border: 2px solid white;
+      }
+      
+      .status-dot.active {
+        background-color: green;
+      }
+      
+      .user-profile {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        max-width: 100%;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .profile-container img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .user-info {
+        flex-shrink: 0;
+      }
+
+      .user-profile::-webkit-scrollbar {
+        height: 5px;
+      }
+
+      .user-profile::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+ 
+ 
+  <body>
+    <% today_clock_in = current_user.work_sessions.where("DATE(clock_in) = ?", Date.current).where(clock_out: nil).first %>
+  
+    <!-- Status Message -->
+    <div id="status-message" class="center-container">
+      <% if today_clock_in %>
+        <% if today_clock_in.break_start.present? && today_clock_in.break_end.nil? %>
+          <h3>You are on a <span class="status-text working">Break Now</span></h3>
+        <% else %>
+          <h3>You are currently <span class="status-text working">working</span></h3>
+        <% end %>
+      <% else %>
+        <h3>Welcome! <%= current_user.username %> Click "Clock In" to start working.</h3>
+      <% end %>
+    </div>
+    
+    <div class="container">
+      <div class="form-group">
+        <% if today_clock_in %>
+          <div class="container">
+            <form action="<%= clock_out_work_sessions_path %>" method="post">
+              <div class="form-group">
+                <%= button_to "Clock Out", clock_out_work_sessions_path, method: :post, class: "btn btn-danger btn-lg float-right", id: "clock-out-btn" %>
+              </div>
+            </form>
+          </div>
+    
+          <% if today_clock_in.break_start.present? && today_clock_in.break_end.nil? %>
+            <div class="container">
+              <form action="<%= end_break_work_sessions_path %>" method="post">
+                <div class="form-group">
+                  <%= button_to "Resume Work", end_break_work_sessions_path, method: :post, class: "btn btn-primary btn-lg float-right", id: "resume-work-btn" %>
+                </div>
+              </form>
+            </div>
+          <% else %>
+            <div class="container">
+              <form action="<%= start_break_work_sessions_path %>" method="post">
+                <div class="form-group">
+                  <%= button_to "Take a Break", start_break_work_sessions_path, method: :post, class: "btn btn-warning btn-lg float-right", id: "take-break-btn" %>
+                </div>
+              </form>
+            </div>
+          <% end %>
+    
+        <% else %>
+          <div class="container">
+            <form action="<%= clock_in_work_sessions_path %>" method="post">
+              <div class="form-group">
+                <%= button_to "Clock In", clock_in_work_sessions_path, method: :post, class: "btn btn-success btn-lg float-right", id: "clock-in-btn" %>
+              </div>
+            </form>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const statusMessage = document.getElementById("status-message");
+    
+        document.getElementById("clock-in-btn")?.addEventListener("click", function () {
+          statusMessage.innerHTML = '<h3>You are currently <span class="status-text working">working</span></h3>';
+        });
+    
+        document.getElementById("take-break-btn")?.addEventListener("click", function () {
+          statusMessage.innerHTML = '<h3>You are on a <span class="status-text working">Break Now</span></h3>';
+        });
+    
+        document.getElementById("resume-work-btn")?.addEventListener("click", function () {
+          statusMessage.innerHTML = '<h3>You are currently <span class="status-text working">working</span></h3>';
+        });
+    
+        document.getElementById("clock-out-btn")?.addEventListener("click", function () {
+          statusMessage.innerHTML = '<h3>Welcome! Click "Clock In" to start working.</h3>';
+        });
+      });
+    </script>
+  
+    <div class="welcome-message">
+      <% current_hour =  Time.current.in_time_zone("Asia/Kolkata").hour %>
+        <% greeting =
+        if current_hour < 12
+          "Good Morning"
+        elsif current_hour <= 17
+          "Good Afternoon"
+        else
+          "Good Evening"
+        end
+        %>
+      <h2 style="margin-left: 9px;"><%= greeting %>, <%= current_user.username %></h2>
+    </div>
+  
+    <div class="welcome-message">
+      <% today_clock_in = current_user.work_sessions.where("DATE(clock_in) = ?", Date.current).where(clock_out: nil).first %>
+      <% if today_clock_in && today_clock_in.clock_in.present? %>
+        <% clock_in_time = today_clock_in.clock_in %>
+        <p style="margin-left: 9px;">Clocked in at: <%= clock_in_time.strftime("%I:%M %p") %></p>
+        <p style="margin-left: 9px;">Time since clock-In: <span id="clock_timer"></span></p>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            // Get the clock-in time from the server
+            var clockInTime = new Date("<%= clock_in_time.utc.iso8601 %>").getTime();
+            
+            // Variables to track timer state
+            var isOnBreak = false;
+            var pausedTime = 0;
+            var totalBreakTime = 0;
+            var timerInterval;
+            
+            // Load saved state from localStorage
+            if (localStorage.getItem("timer_paused")) {
+              isOnBreak = localStorage.getItem("timer_paused") === "true";
+              pausedTime = parseInt(localStorage.getItem("timer_display") || "0", 10);
+              totalBreakTime = parseInt(localStorage.getItem("timer_breaks") || "0", 10);
+            }
+            
+            // Initialize timer
+            if (isOnBreak) {
+              // If on break, display the saved time (frozen)
+              displayTime(pausedTime);
+              startFrozenTimer(pausedTime);
+            } else {
+              // If working, start the timer from the correct point
+              startRunningTimer();
+            }
+            
+            // Functions
+            function startRunningTimer() {
+              // Clear any existing timer
+              clearInterval(timerInterval);
+              
+              // Start a timer that updates every second
+              timerInterval = setInterval(function() {
+                var now = new Date().getTime();
+                var elapsedMilliseconds = now - clockInTime - totalBreakTime;
+                displayTime(elapsedMilliseconds);
+              }, 1000);
+            }
+            
+            function startFrozenTimer(timeToShow) {
+              // Clear any existing timer
+              clearInterval(timerInterval);
+              
+              // Start a timer that shows the same time
+              timerInterval = setInterval(function() {
+                displayTime(timeToShow);
+              }, 1000);
+            }
+            
+            function displayTime(milliseconds) {
+              // Format time as HH:MM:SS
+              var hours = Math.floor(milliseconds / (1000 * 60 * 60));
+              var minutes = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
+              var seconds = Math.floor((milliseconds % (1000 * 60)) / 1000);
+              
+              var formattedTime = 
+                (hours < 10 ? "0" : "") + hours + ":" +
+                (minutes < 10 ? "0" : "") + minutes + ":" +
+                (seconds < 10 ? "0" : "") + seconds;
+                
+              document.getElementById("clock_timer").textContent = formattedTime;
+            }
+            
+            // Take Break button
+            document.getElementById("take-break-btn")?.addEventListener("click", function() {
+              if (!isOnBreak) {
+                // Calculate current elapsed time
+                var now = new Date().getTime();
+                pausedTime = now - clockInTime - totalBreakTime;
+                
+                // Set break state
+                isOnBreak = true;
+                
+                // Save state to localStorage
+                localStorage.setItem("timer_paused", "true");
+                localStorage.setItem("timer_display", pausedTime.toString());
+                localStorage.setItem("timer_breaks", totalBreakTime.toString());
+                localStorage.setItem("break_start", now.toString());
+                
+                // Switch to frozen timer
+                startFrozenTimer(pausedTime);
+              }
+            });
+            
+            // Resume Work button
+            document.getElementById("resume-work-btn")?.addEventListener("click", function() {
+              if (isOnBreak) {
+                // Calculate break duration
+                var breakStartTime = parseInt(localStorage.getItem("break_start") || "0", 10);
+                var now = new Date().getTime();
+                var breakDuration = now - breakStartTime;
+                
+                // Add to total break time
+                totalBreakTime += breakDuration;
+                
+                // No longer on break
+                isOnBreak = false;
+                
+                // Save state to localStorage
+                localStorage.setItem("timer_paused", "false");
+                localStorage.setItem("timer_breaks", totalBreakTime.toString());
+                
+                // Switch to running timer
+                startRunningTimer();
+              }
+            });
+            
+            // Clock Out button
+            document.getElementById("clock-out-btn")?.addEventListener("click", function() {
+              clearInterval(timerInterval);
+              // Clear saved state
+              localStorage.removeItem("timer_paused");
+              localStorage.removeItem("timer_display");
+              localStorage.removeItem("timer_breaks");
+              localStorage.removeItem("break_start");
+            });
+          });
+        </script>
+      <% end %>
+    </div>
+  
+    <div class="help-button">
+      <div class="help-text">Need Help?</div>
+      <button></button>
+    </div>
+
+    <div class="work-actions">
+      <%= link_to "View Your Report", user_report_path(current_user), class: "btn btn-secondary", style: "margin-left: 425px; display: inline-block; padding: 10px 20px; text-decoration: none;" %>
+      <button class="btn btn-secondary" style="margin-left: 72px;" >Apply leave</button>
+    </div>
+  </body>
+</html>
