@@ -84,6 +84,7 @@ ActiveAdmin.register_page "Daily Attendance" do
                     work_session = user.work_sessions.where(
                       "DATE(clock_in) = ?", selected_date
                     ).last
+                    
  
                     if work_session&.clock_in && work_session&.clock_out
                       total_hours = work_session.calculate_total_hours
