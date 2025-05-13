@@ -28,7 +28,7 @@ ActiveAdmin.register_page "Dashboard" do
           div style: "font-size: 20px; font-weight: bold; text-align: center; padding: 15px;" do
             on_break_count = WorkSession.where.not(break_start: nil).where(break_end: nil).select(:user_id).distinct.count
             on_break_count > 0 ? "#{on_break_count}" : "No user on break"
-          end
+           end
         end
         
         panel "Currently Stopped Work" do
