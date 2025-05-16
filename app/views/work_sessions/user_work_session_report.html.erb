@@ -62,7 +62,11 @@
               <% if session.clock_out.present? %>
                 <%= session.clock_out.strftime("%I:%M:%S %p") %>
               <% else %>
-                <%= @user.username.capitalize %> Currently working
+                <% if session.clock_in.present? && session.break_start.nil? %>
+                  <%= @user.username.capitalize %> Currently working
+                <% elsif session.break_start.present? %>
+                  <%= @user.username.capitalize %> Currently On Break
+                <% end %>
               <% end %>
             </td>
             <td>
