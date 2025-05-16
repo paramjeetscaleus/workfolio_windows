@@ -39,7 +39,7 @@ ActiveAdmin.register Screenshot do
         # Remove everything before and including "public/"
         image_path = normalized_path.sub(%r{.*public/}, '/')
     
-        div style: "text-alzign: center" do
+        div style: "text-align: center" do
           image_tag image_path, style: "max-width: 150px; max-height: 100px; cursor: pointer;",
                     onclick: "window.open('#{image_path}', '_blank')"
         end
